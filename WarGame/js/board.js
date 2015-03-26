@@ -12,11 +12,12 @@ var Board = function(id, size, ships)
         return _matrix;
     };
 
+    //displays the Board on the console
     this.displayBoard = function (){
         for(var i = 0; i < size; i++)
         {
             var column = _matrix[i];
-            console.log("------------");
+
             for(var j = 0; j < size; j++)
             {
                 console.log("|" + column + "|");
@@ -24,6 +25,7 @@ var Board = function(id, size, ships)
         };
     };
 
+    //verifies the size of the ship
     this.setSize = function(size)
     {
         _size = size;
@@ -47,6 +49,4 @@ var Board = function(id, size, ships)
             _matrix.push(column);
         };
     };
-
-
 };
