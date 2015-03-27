@@ -1,30 +1,15 @@
 /**
  * Created by Samuel Vargas on 3/24/2015.
  */
-var Game = function (player, id, board )
+    /**/
+var Game = function (name)
 {
+    var _Name = name;
+    var _Boards = Array();
 
-    var _player=player ;
-    var _id=id;
-    var _board=board;
+    this.startGame = funtion(){
 
-    //Metodo de la clase Game
-
-    this.getPlayer =function()
-    {
-        return player;
     };
 
-    this.getId=function()
-    {
-        return id;
-    };
-//comentjdggg
-    this.getBoard = function()
-    {
-        return board;
-    };
-
-
-
+    this.
 };
