@@ -7,9 +7,7 @@ var Game = function (name)
     var _Name = name;
     var _Boards = Array();
 
-    this.startGame = funtion(){
+    this.startGame = function(){
 
     };
-
-    this.
 };
