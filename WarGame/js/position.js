@@ -1,3 +1,8 @@
+/**
+ * This function is for define the X, Y position on the board, because that values are needed for
+ * the ships positions and for the shots coodenates
+ * This funcion return to numeric values X and Y.
+ */
 var Position = function(x, y){
     var _x = x;
     var _y = y;
