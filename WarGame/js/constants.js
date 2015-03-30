@@ -1,5 +1,5 @@
 /**
- * This class is for use contans in the app
+ * In this function the @CONST is a JSON function for use the different variables we use during the game.
  */
 var CONST = (function() {
     var private = {
