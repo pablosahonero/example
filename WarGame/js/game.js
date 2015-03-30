@@ -8,7 +8,7 @@
  * @param players represents the number of players
  * @param represents the size of the Player's Board
  */
-var Game = function (name, players, size)// be careful with the size, size = 10
+var Game = function (name, players)// be careful with the size, size = 10
 {
     /**
      * Name of the Game
@@ -25,11 +25,6 @@ var Game = function (name, players, size)// be careful with the size, size = 10
      * @type {number}
      */
     var _players = players;
-    /**
-     * Size of the Boards that are going to be used in the game
-     * @type {number}
-     */
-    var _size = size;
 
     /**
      * This function initializes the boards to be used during the game.
@@ -40,7 +35,7 @@ var Game = function (name, players, size)// be careful with the size, size = 10
              * Object Board to be used in the game
              * @type {Board}
              */
-            var board = new Board(i, _size);
+            var board = new Board(i);
             board.initializeBoard();
             _boards.push(board);
         };

@@ -4,12 +4,10 @@
 
 /**
  * This class represents a Boards that is being used in the game
- * @param represents the Board identification
- * @param represents the Board size
+ * @param id represents the Board identification
  */
-var Board = function(id, size)// be careful with the size parameter
+var Board = function(id)// be careful with the size parameter
 {
-
     /**
      * identification of the Game
      * @type {number}
@@ -26,7 +24,7 @@ var Board = function(id, size)// be careful with the size parameter
      * The length of the board
      * @type {number}
      */
-    var _size = size;
+    var _size = CONST.get('BOARD_SIZE');
 
     /**
      * the matrix that represents the Positions of the Board
@@ -59,9 +57,9 @@ var Board = function(id, size)// be careful with the size parameter
      *
      */
     this.initializeMatrix = function(){
-        for(var i = 0; i < size; i++){
+        for(var i = 0; i < _size; i++){
             _matrix.push(new Array());
-            for(var j = 0; j < size; j++){
+            for(var j = 0; j < _size; j++){
                 _matrix[i].push(CONST.get('FREE_SPACE'));
             };
         };
