@@ -12,13 +12,9 @@ var CONST = (function() {
  */
         'TOTAL_SHIPS': 10,
 /**
- * This variable is for the max size of the game board
+ * This variable is for the size of the game board
  */
-        'BOARD_SIZE_MAX': 20,
-/**
- * This variable is for the min size of the game board
- */
-        'BOARD_SIZE_MIN': 10,
+        'BOARD_SIZE': 10,
 /**
  * This variable is for the turs of every player. E.G for 3 player exists 60 turn 20 for every player
  */
@@ -29,7 +25,12 @@ var CONST = (function() {
  */
         'FREE_SPACE': 0,
         'SHIP_SPACE': 1,
-        'SHOT_SPACE': 2
+        'SHOT_SPACE': 2,
+/**
+ * This functions are for define the orientation of the ships
+ */
+        'VERTICAL': 1,
+        'HORIZONTAL': 2
     };
 
     return {
