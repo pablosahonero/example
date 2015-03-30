@@ -12,21 +12,21 @@ var Board = function(id, size, ships)
         return _matrix;
     };
 
-    this.displayBoard = function (){
-        for(var i = 0; i < size; i++)
-        {
-            var column = _matrix[i];
-            console.log("------------");
-            for(var j = 0; j < size; j++)
-            {
-                console.log("|" + column + "|");
-            };
-        };
-    };
-
+    //verifies the size of the ship
     this.setSize = function(size)
     {
         _size = size;
+    };
+
+    //displays the Board on the console
+    this.displayBoard = function (){
+        for(var i = 0; i < size; i++)
+        {
+            for(var j = 0; j < size; j++)
+            {
+                console.log("|" + _matrix[i] + "|");
+            };
+        };
     };
 
     this.addShip = function(ship)
@@ -47,6 +47,4 @@ var Board = function(id, size, ships)
             _matrix.push(column);
         };
     };
-
-
 };

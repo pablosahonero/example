@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 /**
  * Created by Samuel Vargas on 3/29/2015.
  */
+=======
+>>>>>>> origin/master
 var Player = function(id){
     var _id = id;
     var _score = 0;
@@ -28,4 +31,8 @@ var Player = function(id){
             _ships[i].displayLocation();
         };
     };
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> origin/master
