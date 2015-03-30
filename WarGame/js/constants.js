@@ -25,7 +25,7 @@ var CONST = (function() {
         'GAME_TURNS': 20,
 /**
  * Thi variables are for the game board, in the board for drawing the game a "0" value represents a FREE SPACE,
- * "1" value represents a SHIP and "2" represents a Shot
+ * "1" value represents a SHIP and "2" represents a Shots
  */
         'FREE_SPACE': 0,
         'SHIP_SPACE': 1,
