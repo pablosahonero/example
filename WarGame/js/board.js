@@ -1,50 +1,50 @@
 /**
  * Created by Pablo Sahonero on 3/23/2015.
  */
-var Board = function(id, size, ships)
+var Board = function(id, size)// be careful with the size parameter
 {
     var _id = id;
+    var _player = new Player(_id);
     var _size = size;
-    var _ships = ships;
     var _matrix = new Array();
 
     this.getMatrix = function(){
         return _matrix;
     };
 
-    //verifies the size of the ship
-    this.setSize = function(size)
-    {
-        _size = size;
+    this.initializeBoard = function(){
+        _player.createShips();
+        this.initializeMatrix();
+        this.locateShips(_player.getShips());
     };
 
-    //displays the Board on the console
-    this.displayBoard = function (){
-        for(var i = 0; i < size; i++)
-        {
-            for(var j = 0; j < size; j++)
-            {
-                console.log("|" + _matrix[i] + "|");
+    this.initializeMatrix = function(){
+        for(var i = 0; i < size; i++){
+            _matrix.push(new Array());
+            for(var j = 0; j < size; j++){
+                _matrix[i].push(CONST.get('FREE_SPACE'));
             };
         };
     };
 
-    this.addShip = function(ship)
-    {
-        _ships.push(ship);
+    this.locateShips = function(array){
+        var ships = array;
+        for(var i = 0; i < ships.length; i++){
+            var ship = ships[i];
+            for(var j = 0; j < ship.getLocation().length; j++){
+                var position = ship.getLocation()[j];
+                _matrix[position.getX()][position.getY()] = CONST.get('SHIP_SPACE');
+            };
+        };
     };
 
-    //initializes the board matrix with the respective size
-    this.initializeMatrix = function ()
-    {
-        for(var i = 0; i < size; i++)
-        {
-            var column = new Array();
-            for(var j = 0; j < size; j++)
-            {
-                column.push(0);
+    this.displayBoard = function(){
+        _player.displayPlayer();
+        for(var i = 0; i < _size; i++){
+            console.log('Row ' + i + ':');
+            for(var j = 0; j < _size; j++){
+                console.log('|'+ _matrix[i] + '|');
             };
-            _matrix.push(column);
         };
     };
 };
