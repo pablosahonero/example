@@ -25,14 +25,9 @@ var Game = function (name, players)// be careful with the size, size = 10
      * @type {number}
      */
     var _players = players;
+
     /**
-     * Represents the
-     * @type {bool}
-     */
-    var _boolTurn;
-    /**
-     * This var represent when the player has his turn
-     * @type {(bool)}
+     * This function initializes the boards to be used during the game.
      */
     this.startGame = function(){
         for(var i = 0; i < _players; i++){
@@ -53,16 +48,5 @@ var Game = function (name, players)// be careful with the size, size = 10
         for(var i = 0; i < _boards.length; i++){
             _boards[i].displayBoard();
         };
-    };
-    /**
-     * Validate the change of turn for the user.
-     * */
-    this.validationTurn = function () {
-    if(CONST.get('CONTROL_TURNS')==true){
-        _boolTurn=true;
-    }
-        else{
-        alert('Please wait for your turn.');
-    };
     };
 };

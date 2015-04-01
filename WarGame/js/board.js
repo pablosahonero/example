@@ -31,13 +31,11 @@ var Board = function(id)// be careful with the size parameter
      * @type {Array}
      */
     var _matrix = new Array();
-    /**
-     * This variable for validate the initialize of the board.
-     */
-    var _boolResult;
+
+
     /**
      * This function returns the Board's Matrix
-     * @return {bool}
+     * @return {Array}
      */
     this.getMatrix = function(){
         return _matrix;
@@ -86,7 +84,7 @@ var Board = function(id)// be careful with the size parameter
      * This function display the Board, the Ship and the Shots
      *
      */
-    this.displayBoard = function () {
+    this.displayBoard = function(){
         _player.displayPlayer();
         for(var i = 0; i < _size; i++){
             console.log('Row ' + i + ':');
@@ -94,19 +92,5 @@ var Board = function(id)// be careful with the size parameter
                 console.log('|'+ _matrix[i] + '|');
             };
         };
-    };
-    /**
-     * This function validate the board and ships, return true or false
-     *
-     */
-    this.validationBoard = function () {
-         if((CONST.get('BOARD_SIZE')*CONST.get('BOARD_SIZE'))>=CONST.get('SHIPS_NUMBER')){
-             _boolResult=true;
-
-         }
-        else{
-             _boolResult=false;
-             alert('Please review the size of board and number of ships');
-         };
     };
 };
