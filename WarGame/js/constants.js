@@ -10,7 +10,7 @@ var CONST = (function() {
 /**
  * This variable is for the total amount of ships by player, that measn every player have 10 ships
  */
-        'TOTAL_SHIPS': 10,
+        'SHIPS_NUMBER': 10,
 /**
  * This variable is for the size of the game board
  */
@@ -30,7 +30,11 @@ var CONST = (function() {
  * This functions are for define the orientation of the ships
  */
         'VERTICAL': 1,
-        'HORIZONTAL': 2
+        'HORIZONTAL': 2,
+/**
+*This variable is for change the turns for each player
+*/
+        'CONTROL_TURNS': TRUE
     };
 
     return {

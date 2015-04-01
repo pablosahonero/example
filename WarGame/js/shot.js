@@ -20,11 +20,8 @@ var shot = function() {
      * Represents the number of the shot
      * @type {Position}
      */
+
     this.getState = function () {
         return _location;
     };
-    /**
-     * Initializes the status of the Shot
-     * */
-
  };
