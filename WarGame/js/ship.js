@@ -45,6 +45,7 @@ var Ship = function(){
 
     /**
      * Sets the Ship's location based on an Array of Positions
+     *
      */
     this.setLocation = function(l){
         var length = l;
@@ -96,6 +97,7 @@ var Ship = function(){
 
     /**
      * Displays the location of the Ship based in Positions
+     *
      */
     this.displayLocation = function(){
         for (var i = 0; i < _location.length; i++) {

@@ -28,7 +28,7 @@
         console.log('Player ' + _id + ' : ' + _score +' pts');
     };
 /**
- * This function is for diaplay in console the ships and its location
+ * This function is for display in console the ships and its location
  */
     this.displayShips = function(){
         for(var i = 0; i < 4; i++){

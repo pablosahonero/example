@@ -43,6 +43,7 @@ var Game = function (name, players)// be careful with the size, size = 10
 
     /**
      * This function displays all the Boards involved in the game
+     *
      */
     this.displayGame = function(){
         for(var i = 0; i < _boards.length; i++){

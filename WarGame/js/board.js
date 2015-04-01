@@ -83,6 +83,7 @@ var Board = function(id)// be careful with the size parameter
     /**
      * This function display the Board, the Ship and the Shots
      *
+     *
      */
     this.displayBoard = function(){
         _player.displayPlayer();

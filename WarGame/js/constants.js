@@ -28,11 +28,13 @@ var CONST = (function() {
         'SHOT_SPACE': 2,
 /**
  * This functions are for define the orientation of the ships
+ *
  */
         'VERTICAL': 1,
         'HORIZONTAL': 2,
 /**
 *This variable is for change the turns for each player
+ *
 */
         'CONTROL_TURNS': TRUE
     };
