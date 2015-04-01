@@ -14,11 +14,8 @@ var Board = function(id)// be careful with the size parameter
      */
     var _id = id;
 
-    /**
-     * the Player associated to the current Board
-     * @type {Player}
-     */
-    var _player = new Player(_id);
+
+    var _ships = new Array();
 
     /**
      * The length of the board
@@ -31,7 +28,6 @@ var Board = function(id)// be careful with the size parameter
      * @type {Array}
      */
     var _matrix = new Array();
-
 
     /**
      * This function returns the Board's Matrix
@@ -47,9 +43,9 @@ var Board = function(id)// be careful with the size parameter
      *
      */
     this.initializeBoard = function(){
-        _player.createShips();
+        this.createShips();
         this.initializeMatrix();
-        this.locateShips(_player.getShips());
+        this.locateShips(_ships);
     };
 
     /**
@@ -67,7 +63,6 @@ var Board = function(id)// be careful with the size parameter
 
     /**
      * This function locates the Ship in the Board
-     *
      */
     this.locateShips = function(array){
         var ships = array;
@@ -82,15 +77,21 @@ var Board = function(id)// be careful with the size parameter
 
     /**
      * This function display the Board, the Ship and the Shots
-     *
      */
     this.displayBoard = function(){
-        _player.displayPlayer();
         for(var i = 0; i < _size; i++){
-            console.log('Row ' + i + ':');
+            //console.log('-');
             for(var j = 0; j < _size; j++){
                 console.log('|'+ _matrix[i] + '|');
             };
+        };
+    };
+
+    this.createShips = function(){
+        for(var i = 0; i < 4; i++){
+            var ship = new Ship();
+            ship.initializeShip();
+            _ships.push(ship);
         };
     };
 };
