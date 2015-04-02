@@ -5,9 +5,10 @@
 /**
  * Represents the current Game
  * @param name represents the name of the Game
- * @param numberOfPlayers represents the number of players
+ * @param players represents the number of players
+ * @param represents the size of the Player's Board
  */
-var Game = function (name, numberOfPlayers)// be careful with the size, size = 10
+var Game = function (name, players)// be careful with the size, size = 10
 {
     /**
      * Name of the Game
@@ -16,36 +17,53 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
     var _name = name;
     /**
      * Array of the Boards that are going to be used in the game
-     * @type {Array}
+     * @type {Array{Board}}
      */
-    var _players = Array();
+    var _boolTurn;
+    /**
+    * This var represent when the player has his turn
     /**
      * Number of players in the Game
      * @type {number}
      */
+    var _players = players;
 
-    var _numberOfPlayers = numberOfPlayers;
     /**
      * This function initializes the boards to be used during the game.
      */
+
     this.startGame = function(){
-        for(var i = 0; i < _numberOfPlayers; i++){
+        for(var i = 0; i < _players; i++){
             /**
              * Object Board to be used in the game
-             * @type {Player}
+             * @type {Board}
              */
-            var player = new Player(i);
-            player.initializePlayer();
-            _players.push(player);
+            var board = new Board(i);
+            board.initializeBoard();
+            _boards.push(board);
         };
     };
 
     /**
      * This function displays all the Boards involved in the game
+     *
      */
     this.displayGame = function(){
-        for(var i = 0; i < _players.length; i++){
-            _players[i].displayBoard();
+        for(var i = 0; i < _boards.length; i++){
+            _boards[i].displayBoard();
         };
     };
+
+    /**
+     * Validate the change of turn for the user.
+     * */
+
+   this.validationTurn = function () {
+        if(CONST.get('CONTROL_TURNS')==true){
+            _boolTurn=true;
+            }
+        else{
+        alert('Please wait for your turn.');
+         };
+        };
 };

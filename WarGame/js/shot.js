@@ -23,8 +23,4 @@ var shot = function() {
     this.getState = function () {
         return _location;
     };
-    /**
-     * Initializes the status of the Shot
-     * */
-
  };
