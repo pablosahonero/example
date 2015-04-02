@@ -19,7 +19,9 @@ var Game = function (name, players)// be careful with the size, size = 10
      * Array of the Boards that are going to be used in the game
      * @type {Array{Board}}
      */
-    var _boards = Array();
+    var _boolTurn;
+    /**
+    * This var represent when the player has his turn
     /**
      * Number of players in the Game
      * @type {number}
@@ -29,6 +31,7 @@ var Game = function (name, players)// be careful with the size, size = 10
     /**
      * This function initializes the boards to be used during the game.
      */
+
     this.startGame = function(){
         for(var i = 0; i < _players; i++){
             /**
@@ -50,4 +53,17 @@ var Game = function (name, players)// be careful with the size, size = 10
             _boards[i].displayBoard();
         };
     };
+
+    /**
+     * Validate the change of turn for the user.
+     * */
+
+   this.validationTurn = function () {
+        if(CONST.get('CONTROL_TURNS')==true){
+            _boolTurn=true;
+            }
+        else{
+        alert('Please wait for your turn.');
+         };
+        };
 };

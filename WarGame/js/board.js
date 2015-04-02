@@ -31,7 +31,12 @@ var Board = function(id)// be careful with the size parameter
      * @type {Array}
      */
     var _matrix = new Array();
-
+    /**
+     * This variable for validate the initialize of the board.
+     * @return {bool}
+     *
+     */
+     var _boolResult;
 
     /**
      * This function returns the Board's Matrix
@@ -94,4 +99,17 @@ var Board = function(id)// be careful with the size parameter
             };
         };
     };
+    /**
+     * This function validate the board and ships, return true or false
+     *
+     */
+    this.validationBoard = function () {
+        if((CONST.get('BOARD_SIZE')*CONST.get('BOARD_SIZE'))>=CONST.get('SHIPS_NUMBER')){
+        _boolResult=true;
+        }
+        else{
+        _boolResult=false;
+        alert('Please review the size of board and number of ships');
+        };
+          };
 };
