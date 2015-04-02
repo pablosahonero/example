@@ -17,6 +17,8 @@ var Board = function(id)// be careful with the size parameter
 
     var _ships = new Array();
 
+    var _shots = new Array();
+
     /**
      * The length of the board
      * @type {number}
@@ -80,7 +82,7 @@ var Board = function(id)// be careful with the size parameter
      */
     this.displayBoard = function(){
         for(var i = 0; i < _size; i++){
-                colorTrace(i+ '.' + '|'+ _matrix[i]+ '|', "blue");
+             console.log(i + '. |'+ _matrix[i] + '|');
         };
     };
 
@@ -92,8 +94,12 @@ var Board = function(id)// be careful with the size parameter
         };
     };
 
-    var colorTrace = function (msg, color) {
-        console.log.apply("%c" + msg, "color:" + color + ";font-weight:bold;");
-    }
+    this.addShot = function(x, y){
+        var shot = new Shot(x, y);
+        _shots.add(shot);
+    };
 
+    this.locateShot = function(x, y){
+        _matrix[x][y] = CONST.get('SHIP_SPACE');
+    };
 };

@@ -36,7 +36,10 @@ var CONST = (function() {
 *This variable is for change the turns for each player
  *
 */
-        'CONTROL_TURNS': true
+        'CONTROL_TURNS': true,
+        'NONE': 0,
+        'HIT': 1,
+        'FAIL': 2
     };
 
     return {
