@@ -80,10 +80,7 @@ var Board = function(id)// be careful with the size parameter
      */
     this.displayBoard = function(){
         for(var i = 0; i < _size; i++){
-            //console.log('-');
-            for(var j = 0; j < _size; j++){
-                console.log('|'+ _matrix[i] + '|');
-            };
+                colorTrace(i+ '.' + '|'+ _matrix[i]+ '|', "blue");
         };
     };
 
@@ -94,4 +91,9 @@ var Board = function(id)// be careful with the size parameter
             _ships.push(ship);
         };
     };
+
+    var colorTrace = function (msg, color) {
+        console.log.apply("%c" + msg, "color:" + color + ";font-weight:bold;");
+    }
+
 };
