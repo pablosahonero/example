@@ -14,6 +14,10 @@ var Board = function(id)// be careful with the size parameter
      */
     var _id = id;
 
+    /**
+     * this is an array for ships,
+     * @type {array}
+     */
 
     var _ships = new Array();
 
@@ -50,7 +54,7 @@ var Board = function(id)// be careful with the size parameter
 
     /**
      * This function initializes all the positions of the matrix to FREE_SPACE
-     *
+     * not need the parameter
      */
     this.initializeMatrix = function(){
         for(var i = 0; i < _size; i++){
@@ -62,7 +66,9 @@ var Board = function(id)// be careful with the size parameter
     };
 
     /**
-     * This function locates the Ship in the Board
+     * This function locates the Ship in the Board,
+     * need the parameter array
+     * work with the constant : SHIP_SPACE
      */
     this.locateShips = function(array){
         var ships = array;
@@ -84,6 +90,10 @@ var Board = function(id)// be careful with the size parameter
         };
     };
 
+    /**
+     * This function create the ships with the constant "Ship_Number"
+     * and not need the parameters
+     */
     this.createShips = function(){
         for(var i = 0; i < CONST.get('SHIPS_NUMBER'); i++){
             var ship = new Ship();
@@ -92,6 +102,10 @@ var Board = function(id)// be careful with the size parameter
         };
     };
 
+    /**
+     * This function locate the shot with constants: 'SHOT_SPACE' and DAMAGED
+     * need the parameters x and y
+     */
     this.locateShot = function(x, y){
         _matrix[y][x] = CONST.get('SHOT_SPACE');
         if(this.isShipHit(x, y)){
@@ -100,7 +114,10 @@ var Board = function(id)// be careful with the size parameter
         };
         return false;
     };
-
+    /**
+     * This function set the status of ships
+     * need the parameters x, y and status
+     */
     this.setShipStatus = function(x, y, status){
         for(var i = 0; i < _ships.length; i++){
             var ship = _ships[i];
@@ -110,6 +127,10 @@ var Board = function(id)// be careful with the size parameter
         };
     };
 
+    /**
+     * This function validate if the ship do a hit,
+     * need the parameters x and y
+     */
     this.isShipHit = function (x, y){
         for(var i = 0; i < _ships.length; i++){
             if(_ships[i].isShipHit(x, y)){

@@ -61,7 +61,9 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
             _players[i].displayBoard();
         };
     };
-
+    /**
+     * This function shoot in the board, need three parameters
+     */
     this.shootBoard = function(originPlayer, x, y, destinationPlayer){
         var origin = _players[originPlayer];
         origin.addShot(x, y);
