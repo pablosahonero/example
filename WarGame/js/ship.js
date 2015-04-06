@@ -25,15 +25,10 @@ var Ship = function(){
      */
     var _endPosition;
 
-    var _status;
     /**
      * Returns the Ship's location
      * @return {Array}
      */
-    this.setStatus = function(status){
-        _status = status;
-    };
-
     this.getLocation = function(){
         return _location;
     };
@@ -109,14 +104,13 @@ var Ship = function(){
             console.log("cell " + i +   ": " + "x = "+_location[i].getX() + "; y = " + _location[i].getY());
         };
     };
-
-    this.isShipHit = function(x, y){
-        for(var i = 0; i <_location.length; i++){
-            var position = _location[i];
-            if(position.isSamePosition(x, y)){
-                return true;
-            };
+    /**
+     * Displays the location of the Ship based in Positions
+     *
+     */
+    this.displayLocation = function(){
+        for (var i = 0; i < _location.length; i++) {
+            console.log("cell " + i +   ": " + "x = "+_location[i].getX() + "; y = " + _location[i].getY());
         };
-        return false;
     };
 };
