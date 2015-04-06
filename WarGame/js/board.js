@@ -17,8 +17,6 @@ var Board = function(id)// be careful with the size parameter
 
     var _ships = new Array();
 
-    var _shots = new Array();
-
     /**
      * The length of the board
      * @type {number}
@@ -87,19 +85,37 @@ var Board = function(id)// be careful with the size parameter
     };
 
     this.createShips = function(){
-        for(var i = 0; i < 4; i++){
+        for(var i = 0; i < CONST.get('SHIPS_NUMBER'); i++){
             var ship = new Ship();
             ship.initializeShip();
             _ships.push(ship);
         };
     };
 
-    this.addShot = function(x, y){
-        var shot = new Shot(x, y);
-        _shots.add(shot);
+    this.locateShot = function(x, y){
+        _matrix[y][x] = CONST.get('SHOT_SPACE');
+        if(this.isShipHit(x, y)){
+            this.setShipStatus(x, y, CONST.get('DAMAGED'));
+            return true;
+        };
+        return false;
     };
 
-    this.locateShot = function(x, y){
-        _matrix[x][y] = CONST.get('SHIP_SPACE');
+    this.setShipStatus = function(x, y, status){
+        for(var i = 0; i < _ships.length; i++){
+            var ship = _ships[i];
+            if(ship.isShipHit(x, y)){
+               ship.setStatus(status);
+            };
+        };
+    };
+
+    this.isShipHit = function (x, y){
+        for(var i = 0; i < _ships.length; i++){
+            if(_ships[i].isShipHit(x, y)){
+                return true;
+            };
+        };
+        return false;
     };
 };

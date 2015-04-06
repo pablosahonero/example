@@ -47,10 +47,13 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
             _players.push(player);
 
         };
-        /*
-        * call to function change turn
-        * */
-        this.changeTurnPlayer();
+        if(this.selectPlayerInTurn() == null){
+            _players[0].setAsPlayerInTurn(true);
+            _players[0].displayBoard();
+        }else{
+            _players[this.selectPlayerInTurn()].displayBoard();
+        }
+        this.controlPlayersTurn();
      };
 
     /**
@@ -62,11 +65,12 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
         };
     };
 
-    this.shootBoard = function(originPlayer, x, y, destinationPlayer){
-        var origin = _players[originPlayer];
-        origin.addShot(x, y);
-        var destination = _players[destinationPlayer];
-        destination.locateShot(x, y);
+    this.shootBoard = function(currentPlayer, x, y, attackedPlayer){
+        var originPlayer = _players[currentPlayer];
+        var destinationPlayer = _players[attackedPlayer];
+        var isAnyShipDamaged = destinationPlayer.getBoard().locateShot(x, y);
+        var status = isAnyShipDamaged? CONST.get('HIT') : CONST.get('FAIL');
+        originPlayer.addShot(x, y, status, destinationPlayer);
     };
 
     /**
@@ -81,49 +85,61 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
      * This function change the turn for players
      *
      */
-    this.changeTurnPlayer = function(){
-        do{
-            for(var i = 0; i < _players.length; i++){
-                var playerDestination = this.convertToNumber(prompt("Enter the destination player"));
 
+    this.controlPlayersTurn = function(){
 
-                    var player= this.controlPlayerExists();
+        while(_turn > 0){
+            for(var i = this.selectPlayerInTurn(); i < _players.length; i++){
+                console.info("Player %s is playing", i+"");
+                var isTurnStarted = prompt("Start Turn");
+                if(!(isTurnStarted == 'yes')){
+                      return;
+                }
+                var playerDestination = this.convertToNumber(prompt("Enter a Valid Destination player"));
+                playerDestination = this.selectValidPlayer(i, playerDestination);
+                this.shootBoard(i, this.convertToNumber(prompt("Enter X position for shooting")),
+                this.convertToNumber(prompt("Enter Y position for shooting")), playerDestination );
+                _players[playerDestination].displayBoard();
+                _players[i].setAsPlayerInTurn(false);
+                if(i+1 < _players.length){
+                    _players[i+1].setAsPlayerInTurn(true);
+                }else{
+                    _players[0].setAsPlayerInTurn(true);
+                };
 
-                    var playerDestination= this.controlValidatePlayerShootSelf()
-
-                            this.shootBoard(i,
-                            this.convertToNumber(prompt("Enter X position for shooting")),
-                            this.convertToNumber(prompt("Enter Y position for shooting")),
-                            playerDestination );
             };
             _turn = _turn - 1;
         }
-        while(_turn > 0);
-       return true;
     };
+
 
     /**
      * This function validate the number of player destination exist in the array of players
      * */
-    this.playerExists = function(playerDestination){
-        var turnBool=false;
+    this.selectValidPlayer = function(currentPlayer, playerDestination){
+
+        while(this.samePlayer(currentPlayer, playerDestination) ||
+            playerDestination > _players.length || playerDestination < 0){
+            playerDestination = this.convertToNumber(prompt("Enter a Valid Destination player"));
+        };
+        return playerDestination;
+    };
+
+    this.selectPlayerInTurn = function(){
         for(var i = 0; i < _players.length; i++){
-         if(playerDestination == _players[i]){
-              turnBool=true;
-           }
-          else{
-                window.prompt("Enter a valid player Exists");
+            if(_players[i].isInTurn())
+            {
+                return i;
             };
         };
-        return turnBool;
+        return null;
     };
 
     /**
      * This function validate if player does not shooting him self.
      * */
-    this.validatePlayerShootSelf = function(currentPlayer, playerDestination){
-
-        return currentPlayer == playerDestination? true: false;
+    this.samePlayer= function(currentPlayer, playerDestination){
+        return currentPlayer == playerDestination? true : false;
     };
 
     /**

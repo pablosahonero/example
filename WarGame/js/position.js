@@ -14,4 +14,11 @@ var Position = function(x, y){
     this.getY = function(){
         return _y;
     };
+
+    this.isSamePosition = function(x, y){
+        if((_x == x) && (_y == y)){
+          return true;
+        };
+        return false;
+    };
 };
