@@ -8,8 +8,16 @@ var Player = function(id){
     var _shots = new Array();
     var _inTurn = false;
 
+    this.setAsPlayerInTurn = function(inTurn){
+        _inTurn = inTurn;
+    };
+
     this.getBoard = function(){
         return _board;
+    };
+
+    this.getScore = function(){
+        return _score;
     };
     /**
      * This function is for displaying in console the name, id and score of the player.
@@ -28,11 +36,11 @@ var Player = function(id){
         _shots.push(shot);
     };
 
-    this.setAsPlayerInTurn = function(inTurn){
-        _inTurn = inTurn;
-    };
-
     this.isInTurn = function(){
         return _inTurn;
+    };
+
+    this.increaseScore = function(increment){
+        _score = _score + increment;
     };
 };

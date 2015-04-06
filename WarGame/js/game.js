@@ -70,6 +70,9 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
         var destinationPlayer = _players[attackedPlayer];
         var isAnyShipDamaged = destinationPlayer.getBoard().locateShot(x, y);
         var status = isAnyShipDamaged? CONST.get('HIT') : CONST.get('FAIL');
+        if(status == CONST.get('HIT')){
+            originPlayer.increaseScore(1);
+        };
         originPlayer.addShot(x, y, status, destinationPlayer);
     };
 
@@ -110,6 +113,10 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
             };
             _turn = _turn - 1;
         }
+
+        if(_turn == 0){
+            this.countGamePoints();
+        };
     };
 
 
@@ -143,34 +150,22 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
     };
 
     /**
-     * This function check if the player enter a player valid
-     * */
-    this.controlPlayerExists = function(){
-        var bool = true;
-        while(bool){
-            var player = window.prompt();
-            if(!this.playerExists(player)){
-                bool = false;
-            }else{
-                console.log("Enter a user valid control Player Exists");
-            }
+     *Code added for count the game points.
+     */
+    this.countGamePoints = function (){
+        this.displayMessage("GAME OVER");
+        this.displayMessage("The results are:");
+        var points = new Array();
+        for(var i = 0; i < _players.length; i++){
+            var score = {'Player' : "Player " + i, 'Score' :_players[i].getScore() };
+            points.push(score);
+
         };
-        return player;
+        console.table(points, ["Player", "Score"]);
     };
 
-    /**
-     *This function check if the player enter a player valid "Self"
-     * */
-    this.controlValidatePlayerShootSelf = function (){
-        var bool = true;
-        while(bool){
-            var player = window.prompt();
-            if(!this.validatePlayerShootSelf(player)){
-                bool = false;
-            }else{
-                console.log("Enter a user control Validate Player Shoot Self");
-            }
-        };
-        return player;
+    this.displayMessage = function(message){
+        console.info("%c"+ message, "color: red");
+    };
+
 };
-   };

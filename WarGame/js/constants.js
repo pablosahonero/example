@@ -18,7 +18,7 @@ var CONST = (function() {
 /**
  * This variable is for the turs of every player. E.G for 3 player exists 60 turn 20 for every player
  */
-        'GAME_TURNS': 20,
+        'GAME_TURNS': 10,
 /**
  * Thi variables are for the game board, in the board for drawing the game a "0" value represents a FREE SPACE,
  * "1" value represents a SHIP and "2" represents a Shots
