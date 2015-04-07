@@ -16,7 +16,7 @@ var CONST = (function() {
  */
         'BOARD_SIZE': 10,
 /**
- * This variable is for the turs of every player. E.G for 3 player exists 60 turn 20 for every player
+ * This variable is for the turns of every player. E.G for 3 player exists 60 turn 20 for every player
  */
         'GAME_TURNS': 10,
 /**

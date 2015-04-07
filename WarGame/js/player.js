@@ -1,5 +1,5 @@
 /**
- * This function is for initialize the player and his attributes (name, id, score) ahd his ships
+ * This function is for initialize the player and his attributes (name, id, score) ahd its ships
  */
 var Player = function(id){
     var _id = id;

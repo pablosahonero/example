@@ -7,7 +7,7 @@
  * @param name represents the name of the Game
  * @param numberOfPlayers represents the number of players
  */
-var Game = function (name, numberOfPlayers)// be careful with the size, size = 10
+var Game = function (name, numberOfPlayers)
 {
     /**
      * Name of the Game
