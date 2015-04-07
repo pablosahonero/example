@@ -23,7 +23,7 @@ var Player = function(id){
     };
 
     /**
-     * This function get the score of each player
+     * This function  get the score of each player
      */
     this.getScore = function(){
         return _score;

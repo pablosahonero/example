@@ -9,7 +9,7 @@
 var Board = function(id)// be careful with the size parameter
 {
     /**
-     * identification of the Game
+     * identification  of the Game
      * @type {number}
      */
     var _id = id;

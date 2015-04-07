@@ -20,7 +20,7 @@ var Game = function (name, numberOfPlayers)
      */
     var _players = Array();
     /**
-     * Number of players in the Game
+     * Number of  players in the Game
      * @type {number}
      */
 

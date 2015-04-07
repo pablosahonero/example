@@ -12,7 +12,7 @@ var CONST = (function() {
  */
         'SHIPS_NUMBER': 10,
 /**
- * This variable is for the size of the game board
+ * This variable  is for the size of the game board
  */
         'BOARD_SIZE': 10,
 /**

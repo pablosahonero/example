@@ -44,7 +44,7 @@ var Ship = function(){
     };
 
     /**
-     * Sets the Ship's location based on an Array of Positions
+     * Sets the Ship's location  based on an Array of Positions
      *
      */
     this.setLocation = function(l){

@@ -3,5 +3,4 @@
  */
 var game = new Game("WAR GAME", 3);
 game.startGame();
-
 game.displayGame();

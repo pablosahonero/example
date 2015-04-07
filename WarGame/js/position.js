@@ -14,7 +14,7 @@ var Position = function(x, y){
         return _x;
     };
     /**
-     * This function get the "y" position
+     * This function  get the "y" position
      */
     this.getY = function(){
         return _y;
