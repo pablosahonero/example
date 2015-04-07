@@ -6,7 +6,7 @@
  * This class represents a Boards that is being used in the game
  * @param id represents the Board identification
  */
-var Board = function(id)// be careful with the size parameter
+var Board = function(id)
 {
     /**
      * identification  of the Game
