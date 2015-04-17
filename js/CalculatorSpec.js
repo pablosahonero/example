@@ -9,13 +9,5 @@ describe('Calculator', function(){
         var expectedResult = 3;
         expect(actualResult).toBe(expectedResult);
     });
-    it('Should be able to subtract two numbers', function(){
-        expected(true).toBe(true);
-    });
-    it('Should be able to multiply two numbers', function(){
-        expected(true).toBe(true);
-    });
-    it('Should be able to divide two numbers', function(){
-        expected(true).toBe(true);
-    });
+
 });
