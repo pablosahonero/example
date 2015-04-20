@@ -2,6 +2,8 @@
  * Created by Pablo Sahonero on 3/24/2015.
  */
 var Ship = function(){
+
+    var _status = CONST.get('SAFE');
     /**
      * Represents the location of Ship based on Positions
      * @type {Array}
@@ -31,6 +33,10 @@ var Ship = function(){
      */
     this.getLocation = function(){
         return _location;
+    };
+
+    this.setStatus = function(status){
+        _status = status;
     };
 
     /**
@@ -113,4 +119,13 @@ var Ship = function(){
             console.log("cell " + i +   ": " + "x = "+_location[i].getX() + "; y = " + _location[i].getY());
         };
     };
+
+    this.isShipHit = function(x, y){
+        for(var i = 0; i < _location.length-1; i++){
+            if(_location[i].isSamePosition(x, y)){
+                return true;
+            };
+        };
+        return false;
+    }
 };

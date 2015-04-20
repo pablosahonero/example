@@ -76,7 +76,7 @@ var Board = function(id)
             var ship = ships[i];
             for(var j = 0; j < ship.getLocation().length; j++){
                 var position = ship.getLocation()[j];
-                _matrix[position.getX()][position.getY()] = CONST.get('SHIP_SPACE');
+                _matrix[position.getY()][position.getX()] = CONST.get('SHIP_SPACE');
             };
         };
     };
@@ -86,7 +86,7 @@ var Board = function(id)
      */
     this.displayBoard = function(){
         for(var i = 0; i < _size; i++){
-             console.log(i + '. |'+ _matrix[i] + '|');
+            console.log(i + '. |'+ _matrix[i]+ '|');
         };
     };
 
@@ -122,7 +122,7 @@ var Board = function(id)
         for(var i = 0; i < _ships.length; i++){
             var ship = _ships[i];
             if(ship.isShipHit(x, y)){
-               ship.setStatus(status);
+                ship.setStatus(status);
             };
         };
     };

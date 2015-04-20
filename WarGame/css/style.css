@@ -1,0 +1,7 @@
+td.cell{
+    height: 20px;
+    width: 20px;
+    boreder: 1px solid;
+    color: darkred;
+    background-color: #f1f1c1;
+}

@@ -1,4 +1,7 @@
 /**
+ * Created by Pablo Sahonero on 3/24/2015.
+ */
+/**
  * This function is for initialize the player and his attributes (name, id, score) ahd its ships
  */
 var Player = function(id){

@@ -54,7 +54,12 @@ var Game = function (name, numberOfPlayers)
             _players[this.selectPlayerInTurn()].displayBoard();
         }
         this.controlPlayersTurn();
-     };
+    };
+
+    this.continueGame = function(){
+        _players[this.selectPlayerInTurn()].displayBoard();
+        this.controlPlayersTurn();
+    };
 
     /**
      * This function displays all the Boards involved in the game
@@ -81,7 +86,7 @@ var Game = function (name, numberOfPlayers)
      *
      */
     this.convertToNumber = function(value){
-       return parseInt(value);
+        return parseInt(value);
     };
 
     /**
@@ -96,12 +101,12 @@ var Game = function (name, numberOfPlayers)
                 console.info("Player %s is playing", i+"");
                 var isTurnStarted = prompt("Start Turn");
                 if(!(isTurnStarted == 'yes')){
-                      return;
+                    return;
                 }
                 var playerDestination = this.convertToNumber(prompt("Enter a Valid Destination player"));
                 playerDestination = this.selectValidPlayer(i, playerDestination);
                 this.shootBoard(i, this.convertToNumber(prompt("Enter X position for shooting")),
-                this.convertToNumber(prompt("Enter Y position for shooting")), playerDestination );
+                    this.convertToNumber(prompt("Enter Y position for shooting")), playerDestination );
                 _players[playerDestination].displayBoard();
                 _players[i].setAsPlayerInTurn(false);
                 if(i+1 < _players.length){
@@ -149,8 +154,12 @@ var Game = function (name, numberOfPlayers)
      * This function validate if player does not shooting him self.
      * */
     this.samePlayer= function(currentPlayer, playerDestination){
-        this.displayWarning("You cannot attack yourself");
-        return currentPlayer == playerDestination? true : false;
+        if(currentPlayer == playerDestination){
+            this.displayWarning("You cannot attack yourself");
+            return true;
+        };
+
+        return false;
     };
 
     /**
