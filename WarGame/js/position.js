@@ -11,12 +11,29 @@ var Position = function(x, y){
      * This function get the "x" position
      */
     this.getX = function(){
+
+        if(_x == undefined){
+            throw("Error: enter an position X");
+        };
+        if(typeof _x != "number")
+        {
+            throw("Error: enter a number value for X");
+        }
+
         return _x;
     };
     /**
      * This function  get the "y" position
      */
     this.getY = function(){
+        if(_y == undefined){
+            throw("Error: enter an position Y");
+        };
+        if(typeof _y != "number")
+        {
+            throw("Error: enter a number value for Y");
+        }
+
         return _y;
     };
 

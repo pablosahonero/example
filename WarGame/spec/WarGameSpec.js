@@ -3,18 +3,46 @@
  */
 describe('War Game', function(){
 
-    describe('Constants', function(){
-        it('Test 1', function(){
-            expect(true).toBe(true);
-        });
-    });
+    /*
+     * Test cases for class position.
+     * this test cases validate the value enter for X, Y and if the
+     * values are undefined or letters
+     * */
 
     describe('Position', function(){
-        it('It should answer if the given position is the same.', function(){
+        var position = new Position(5,3);
+
+        it('Verify if the value x exist', function(){
+            expect(position.getX()).toBe(5);
+
+        });
+        it('Verify if the value x does not exist', function(){
+            var position = new Position(undefined ,3);
+            expect(function(){position.getX();}).toThrow("Error: enter an position X");
+        });
+        it('Verify if the value y exist', function(){
+            expect(position.getY()).toBe(3);
+            /*expect()*/
+        });
+        it('Verify if the value x should be a number no letter', function(){
+            var position = new Position('s' ,3);
+            expect(function(){position.getX();}).toThrow("Error: enter a number value for X");
+        });
+        it('Verify if the value y should be a number no letter', function(){
+            var position = new Position(3,'E');
+            expect(function(){position.getY();}).toThrow("Error: enter a number value for Y");
+        });
+        it('Verify if the value Y does not exist', function(){
+            var position = new Position(3,undefined);
+            expect(function(){position.getY();}).toThrow("Error: enter an position Y");
+        });
+        it('Verify if the values x and y should be equals', function(){
             var position = new Position(5,3);
             expect(position.isSamePosition(5,3)).toBe(true);
         });
+
     });
+
 
     describe('Ship', function(){
         var ship;
@@ -79,11 +107,22 @@ describe('War Game', function(){
         });
     });
 
+    /*
+     * Test cases for class Shot.
+     * this test cases validate the value enter for X, Y and if the
+     * values are undefined or not a letter show an error message
+     * */
     describe('Shot', function(){
-        it('Test 1', function(){
-            expect(true).toBe(true);
+        var shot = new Shot(5,3);
+        it('Verify if the status of the player is undefined', function(){
+            expect(function(){shot.setStatus();}).toThrow("Error: enter a status");
+        });
+        it('Verify if the status does not a number', function(){
+            expect(function(){shot.setStatus();}).toThrow("Error: enter a status");
         });
     });
+
+
 
     describe('Board', function(){
         it('Test 1', function(){
@@ -91,11 +130,24 @@ describe('War Game', function(){
         });
     });
 
+    /*
+     * Test cases for class position.
+     * this test cases validate the value enter for X, Y and if the
+     * values are undefined or letters
+     * */
     describe('Players', function(){
-        it('Test 1', function(){
-            expect(true).toBe(true);
+        var player = new Player(1);
+        player.initializePlayer();
+        var destinationPlayer = new  Player(2);
+        destinationPlayer.initializePlayer();
+        player.addShot(4,2, status, destinationPlayer);
+
+        it('Verify if the Player shot an specific destination player', function(){
+            expect(player.getShots().length>0).toBe(true);
         });
+
     });
+
 
     describe('Game', function(){
         it('Test 1', function(){

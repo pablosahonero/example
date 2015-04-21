@@ -26,6 +26,13 @@ var Player = function(id){
     };
 
     /**
+     * This function get the shots
+     */
+    this.getShots = function(){
+        return _shots;
+    };
+
+    /**
      * This function  get the score of each player
      */
     this.getScore = function(){

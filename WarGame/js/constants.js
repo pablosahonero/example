@@ -41,6 +41,10 @@ var CONST = (function() {
         'HIT': 1,
         'FAIL': 2,
 
+        /**
+         *This variable is for status the player
+         *
+         */
 
         'SAFE' : 0,
         'DAMAGED' : 1
