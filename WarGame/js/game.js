@@ -33,13 +33,6 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
         return _players;
     };
 
-    this.getNameOfPlayers = function(){
-        return _nameOfPlayers;
-    };
-
-    this.getName = function(){
-        return _name;
-    };
     /**
      * This function initializes the boards to be used during the game.
      */
@@ -54,6 +47,8 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
             _players.push(player);
         }
     };
+
+
 
     /**
      * This function displays all the Boards involved in the game
