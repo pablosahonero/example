@@ -162,8 +162,12 @@ describe('War Game', function(){
 
 
     describe('Game', function(){
-        it('Test 1', function(){
-            expect(true).toBe(true);
+
+        var game = new Game("WAR GAME", 3);
+        it('It should return the number of players expected', function(){
+            game.startGame();
+            var isNumberOfPlayersTheSame = game.getNumberOfPlayers() == game.getPlayers().length;
+            expect(isNumberOfPlayersTheSame).toBe(true);
         });
     });
 });
