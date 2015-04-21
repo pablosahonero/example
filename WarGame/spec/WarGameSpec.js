@@ -125,8 +125,20 @@ describe('War Game', function(){
 
 
     describe('Board', function(){
-        it('Test 1', function(){
-            expect(true).toBe(true);
+        var board = new Board('game');
+        board.initializeBoard();
+
+
+        it('Verify if the Matrix is an array of numbers ', function(){
+            expect(board.getMatrix()instanceof Array).toBe(true);
+        });
+
+        it('Verify if the matrix has the size defined in the constants(10)', function () {
+            expect(board.getMatrix().length == 10).toBe(true);
+        });
+
+         it('Verify if the matrix contains the values of 1 or 0 in the matrix', function () {
+             expect(board.getMatrix().indexOf(0,1)==1).toBe(false);
         });
     });
 
