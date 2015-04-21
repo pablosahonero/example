@@ -6,10 +6,39 @@
  * This class represents a Boards that is being used in the game
  * @param id represents the Board identification
  */
-var Board = function(id)
+
+var drawField = function(x){
+    var table = $('<table> </table>');
+    var row = $('<tr></tr>');
+    row.append('<td></td>');
+    row.append('<td></td>');
+    row.append('<td></td>');
+    table.append(row);
+
+    var row1 = $('<tr></tr>');
+    row1.append('<td></td>');
+    row.append('<td></td>');
+    row.append('<td></td>');
+    table.append(row);
+
+    var row = $('<tr></tr>');
+    row.append('<td></td>');
+    row.append('<td></td>');
+    row.append('<td></td>');
+    table.append(row);
+
+
+
+};
+
+
+
+
+
+var Board = function(id)// be careful with the size parameter
 {
     /**
-     * identification  of the Game
+     * identification of the Game
      * @type {number}
      */
     var _id = id;
@@ -76,7 +105,7 @@ var Board = function(id)
             var ship = ships[i];
             for(var j = 0; j < ship.getLocation().length; j++){
                 var position = ship.getLocation()[j];
-                _matrix[position.getY()][position.getX()] = CONST.get('SHIP_SPACE');
+                _matrix[position.getX()][position.getY()] = CONST.get('SHIP_SPACE');
             };
         };
     };
@@ -86,7 +115,7 @@ var Board = function(id)
      */
     this.displayBoard = function(){
         for(var i = 0; i < _size; i++){
-            console.log(i + '. |'+ _matrix[i]+ '|');
+             console.log(i + '. |'+ _matrix[i] + '|');
         };
     };
 
@@ -122,7 +151,7 @@ var Board = function(id)
         for(var i = 0; i < _ships.length; i++){
             var ship = _ships[i];
             if(ship.isShipHit(x, y)){
-                ship.setStatus(status);
+               ship.setStatus(status);
             };
         };
     };
