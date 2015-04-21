@@ -23,8 +23,23 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
      * Number of players in the Game
      * @type {number}
      */
-
     var _numberOfPlayers = numberOfPlayers;
+
+    this.getNumberOfPlayers = function(){
+        return _numberOfPlayers;
+    };
+
+    this.getPlayers = function(){
+        return _players;
+    };
+
+    this.getNameOfPlayers = function(){
+        return _nameOfPlayers;
+    };
+
+    this.getName = function(){
+        return _name;
+    };
     /**
      * This function initializes the boards to be used during the game.
      */
@@ -37,7 +52,7 @@ var Game = function (name, numberOfPlayers)// be careful with the size, size = 1
             var player = new Player(i);
             player.initializePlayer();
             _players.push(player);
-        };
+        }
     };
 
     /**

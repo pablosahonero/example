@@ -86,12 +86,12 @@ var Board = function(id)// be careful with the size parameter
      * not need the parameter
      */
     this.initializeMatrix = function(){
-        for(var i = 0; i < _size; i++){
-            _matrix.push(new Array());
-            for(var j = 0; j < _size; j++){
-                _matrix[i].push(CONST.get('FREE_SPACE'));
+            for(var i = 0; i < _size; i++){
+                _matrix.push(new Array());
+                for(var j = 0; j < _size; j++){
+                    _matrix[i].push(CONST.get('FREE_SPACE'));
+                };
             };
-        };
     };
 
     /**

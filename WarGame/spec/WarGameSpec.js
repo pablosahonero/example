@@ -125,6 +125,7 @@ describe('War Game', function(){
 
 
     describe('Board', function(){
+
         it('Test 1', function(){
             expect(true).toBe(true);
         });
@@ -150,8 +151,30 @@ describe('War Game', function(){
 
 
     describe('Game', function(){
-        it('Test 1', function(){
-            expect(true).toBe(true);
+
+        var game = new Game("WAR GAME", 3);
+        it('It should return the number of players expected', function(){
+            game.startGame();
+            var isNumberOfPlayersTheSame = game.getNumberOfPlayers() == game.getPlayers().length;
+            expect(isNumberOfPlayersTheSame).toBe(true);
         });
+
+        it('It should return the name expected', function(){
+            game.startGame();
+            var isNameOfPlayersTheSame = game.getNameOfPlayers() == game.getName();
+            expect(isNameOfPlayersTheSame).toBe(true);
+        });
+
+        it('Verify that the number of player are not the expected', function(){
+            expect(function(){game.getNumberOfPlayers() != game.  setStatus();}).toThrow("Error: are not the number of pplayers");
+        });
+
+        it('Verify that the name of player are not the expected', function(){
+            expect(function(){game.getNameOfPlayers() != game.  setStatus();}).toThrow("Error: are not the name expected");
+
+        });
+
+
+
     });
 });
