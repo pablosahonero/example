@@ -32,7 +32,39 @@ var Ship = function(){
      * @return {Array}
      */
     this.getLocation = function(){
+        if(_location == undefined)
+        {
+            throw("Error: Location is not defined");
+        }
         return _location;
+    };
+
+    this.getEndPosition = function(){
+        if(_endPosition == undefined)
+        {
+            throw("Error: End Position is not defined");
+        }
+        return _endPosition;
+    };
+
+    this.getStartPosition = function(){
+        if(_startPosition == undefined)
+        {
+            throw("Error: Start Position is not defined");
+        }
+        return _startPosition;
+    };
+
+    this.getOrientation = function(){
+        if(_orientation == undefined)
+        {
+            throw("Error: Orientation is not defined");
+        }
+        return _orientation;
+    };
+
+    this.getStatus = function(){
+        return _status;
     };
 
     this.setStatus = function(status){
@@ -101,15 +133,6 @@ var Ship = function(){
         };
     };
 
-    /**
-     * Displays the location of the Ship based in Positions
-     *
-     */
-    this.displayLocation = function(){
-        for (var i = 0; i < _location.length; i++) {
-            console.log("cell " + i +   ": " + "x = "+_location[i].getX() + "; y = " + _location[i].getY());
-        };
-    };
     /**
      * Displays the location of the Ship based in Positions
      *

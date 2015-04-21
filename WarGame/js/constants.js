@@ -41,6 +41,7 @@ var CONST = (function() {
         'HIT': 1,
         'FAIL': 2,
 
+
         'SAFE' : 0,
         'DAMAGED' : 1
     };

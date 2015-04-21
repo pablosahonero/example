@@ -7,3 +7,8 @@ var game = new Game("WAR GAME", 3);
 game.startGame();
 game.displayGame();
 
+var drawFieldWithDivs = function(){
+    var cell = 36;
+    var containerSize = cellSize * size;
+
+};

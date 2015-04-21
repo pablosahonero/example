@@ -101,7 +101,7 @@ var  Calculator = function (){
         return result;
     };
 
-    /* Returns the divisionn of two numbers
+    /* Returns the division of two numbers
      * @return {number}
      */
     this.divide = function (a,b){
